@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.crud.tasks.service.SimpleEmailServiceTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2020-01-28T16:32:49" hostname="MacBook-Pro-Sebastian.local" time="0.018">
+  <properties/>
+  <testcase name="shouldSendEmail" classname="com.crud.tasks.service.SimpleEmailServiceTest" time="0.018"/>
+  <system-out><![CDATA[17:32:49.043 [Test worker] INFO org.springframework.mail.SimpleMailMessage - Starting email preparation...
+Puste pole CC - nie został ustanowiony nowy odbiorca
+17:32:49.052 [Test worker] INFO org.springframework.mail.SimpleMailMessage - Email has been sent.
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
