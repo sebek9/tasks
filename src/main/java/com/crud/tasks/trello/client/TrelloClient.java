@@ -50,6 +50,7 @@ private URI getTrelloCardURI(TrelloCardDto trelloCardDto){
 
 }
     public List<TrelloBoardDto> getTrelloBoards() {
+
         try {
             TrelloBoardDto[] boardsResponse = restTemplate.getForObject(getTrelloBoardURI(), TrelloBoardDto[].class);
             return Arrays.asList(ofNullable(boardsResponse).orElse(new TrelloBoardDto[0]));
@@ -58,7 +59,16 @@ private URI getTrelloCardURI(TrelloCardDto trelloCardDto){
             return new ArrayList<>();
         }
     }
-
+    /*
+        try {
+            TrelloBoardDto[] boardsResponse = restTemplate.getForObject(getTrelloBoardURI(), TrelloBoardDto[].class);
+            return Arrays.asList(ofNullable(boardsResponse).orElse(new TrelloBoardDto[0]));
+        }catch (RestClientException e) {
+            LOGGER.error(e.getMessage(), e);
+            return new ArrayList<>();
+        }
+    }
+*/
     public CreatedTrelloCard createNewCard(TrelloCardDto trelloCardDto){
         return restTemplate.postForObject(getTrelloCardURI(trelloCardDto),null, CreatedTrelloCard.class);
     }

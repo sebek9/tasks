@@ -20,7 +20,7 @@ public class TrelloController {
     private TrelloClient trelloClient;
 
     @RequestMapping(method = RequestMethod.GET, value = "getTrelloBoards")
-    public List<TrelloBoardDto> getTrelloBoards() {
+    public void getTrelloBoards() {
         List<TrelloBoardDto> trelloBoards = trelloClient.getTrelloBoards();
         trelloBoards.stream()
                 .filter(dto -> dto.getName() != null)
@@ -35,7 +35,7 @@ public class TrelloController {
                             .forEach(trelloList ->
                                     System.out.println(trelloList.getName() + " - " + trelloList.getId() + " - " + trelloList.isClosed()));
                 });
-return trelloClient.getTrelloBoards().get()(TaskNotFoundException::new));
+
     }
 
 
