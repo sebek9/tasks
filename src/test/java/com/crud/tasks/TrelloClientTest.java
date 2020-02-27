@@ -18,7 +18,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
-
+/*
 
 @RunWith(MockitoJUnitRunner.class)
 public class TrelloClientTest {
@@ -39,7 +39,7 @@ public class TrelloClientTest {
         when(trelloConfig.getTrelloToken()).thenReturn("test");
 
     }
-
+/*
     @Test
     public void shouldFetchTrelloBoards() throws URISyntaxException {
 
@@ -90,6 +90,7 @@ public class TrelloClientTest {
         assertEquals("http://test.com",newCard.getShortUrl());
     }
 */
+/*
     @Test
     public void shouldReturnEmptyList() throws URISyntaxException {
         //Given
@@ -107,3 +108,5 @@ when(restTemplate.getForObject(uri,TrelloBoardDto[].class)).thenReturn(null);
     }
 
 }
+
+ */

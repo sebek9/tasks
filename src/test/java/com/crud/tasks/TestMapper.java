@@ -68,10 +68,10 @@ public class TestMapper {
         //When
         TrelloCardDto trelloCardDto=trelloMapper.mapToCardDto(trelloCard);
         //Then
-        assertEquals(trelloCardDto.getName(),"Test");
-        assertEquals(trelloCardDto.getDescription(),"Test");
-        assertEquals(trelloCardDto.getListId(),"1");
-        assertEquals(trelloCardDto.getPos(),"Test");
+        assertEquals("Test",trelloCardDto.getName());
+        assertEquals("Test",trelloCardDto.getDescription());
+        assertEquals("1",trelloCardDto.getListId());
+        assertEquals("Test",trelloCardDto.getPos());
     }
     @Test
     public void testMapToCard() {
@@ -80,10 +80,10 @@ public class TestMapper {
         //When
         TrelloCard trelloCard=trelloMapper.mapToCard(trelloCardDto);
         //Then
-        assertEquals(trelloCardDto.getName(),"testMapToCard");
-        assertEquals(trelloCardDto.getDescription(),"testMapToCard");
-        assertEquals(trelloCardDto.getListId(),"1");
-        assertEquals(trelloCardDto.getPos(),"testMapToCard");
+        assertEquals("testMapToCard",trelloCardDto.getName());
+        assertEquals("testMapToCard",trelloCardDto.getDescription());
+        assertEquals("1",trelloCardDto.getListId());
+        assertEquals("testMapToCard",trelloCardDto.getPos());
     }
 
 
