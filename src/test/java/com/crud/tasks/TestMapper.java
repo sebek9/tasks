@@ -1,19 +1,13 @@
 package com.crud.tasks;
 
-import com.crud.tasks.config.TrelloConfig;
+
 import com.crud.tasks.domain.*;
 import com.crud.tasks.mapper.TrelloMapper;
-import com.crud.tasks.trello.client.TrelloClient;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
-import org.mockito.Mock;
 import org.mockito.junit.MockitoJUnitRunner;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.client.RestTemplate;
-
 import java.util.*;
-
 import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
