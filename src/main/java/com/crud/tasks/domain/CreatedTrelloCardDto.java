@@ -14,7 +14,7 @@ import java.util.stream.LongStream;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class CreatedTrelloCard {
+public class CreatedTrelloCardDto {
 
 
     @JsonProperty("id")
@@ -26,7 +26,7 @@ public class CreatedTrelloCard {
     @JsonProperty("shortUrl")
     private String shortUrl;
 
-  //  @JsonProperty("badges")
-    //private Badges badges;
+    @JsonProperty("badges")
+    private Badges badges;
 
 }
