@@ -1,3 +1,0 @@
-k17:11:28.337 [Test worker] INFO org.springframework.mail.SimpleMailMessage - Starting email preparation...
-6Puste pole CC - nie został ustanowiony nowy odbiorca
-b17:11:28.353 [Test worker] INFO org.springframework.mail.SimpleMailMessage - Email has been sent.
