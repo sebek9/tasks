@@ -16,9 +16,11 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name= "name")
     private String title;
 
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name= "description")
     private String content;
 }
