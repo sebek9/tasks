@@ -18,9 +18,14 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	compileOnly('org.projectlombok:lombok')
+
+	//Baza danych
+
 	//compile('mysql:mysql-connector-java')
-	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	compile('org.postgresql:postgresql')
+	//providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+
+	compile('org.springframework.boot:spring-boot-starter-data-jpa')
 	annotationProcessor('org.projectlombok:lombok')
 	implementation ('junit:junit:4.12')
 	//testCompile('org.springframework.boot:spring-boot-starter-test')
@@ -33,7 +38,7 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-mail:1.5.7.RELEASE')
 	compile('com.google.code.gson:gson:2.8.2')
 	compile('org.springframework.boot:spring-boot-starter-actuator')
-	//providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
+
 }
 
 
