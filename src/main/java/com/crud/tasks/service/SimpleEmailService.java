@@ -24,7 +24,7 @@ public class SimpleEmailService {
     public void send(final Mail mail) {
         LOGGER.info("Starting email preparation...");
         try {
-            javaMailSender.send(createMimeMessage(mail));
+            javaMailSender.send(createDailyMessage(mail));
             LOGGER.info("Email has been sent.");
 
         } catch (MailException e) {
@@ -57,6 +57,29 @@ public class SimpleEmailService {
         };
     }
 
+    private MimeMessagePreparator createDailyMessage(final Mail mail){
+        return mimeMessage -> {
+            MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
+            messageHelper.setFrom("seba.devtest428@gmail.com");
+            messageHelper.setTo(mail.getMailTo());
+            messageHelper.setSubject(mail.getSubject());
+            messageHelper.setText(mailCreatorService.buildTrelloDailyMail(mail.getMessage()),true);
+        };
+    }
 }
+/*
+private SimpleMailMessage createMailMessage(final Mail mail){
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
+        mailMessage.setFrom("seba.devtest428@gmail.com");
+        mailMessage.setTo(mail.getMailTo());
+        mailMessage.setSubject(mail.getSubject());
+        mailMessage.setText(mail.getMessage());
 
+
+        if((mail.getToCc()!= null) && (!mail.getToCc().equals("")))
+            mailMessage.setCc(mail.getToCc());
+        System.out.println("Puste pole CC - nie został ustanowiony nowy odbiorca");
+        return mailMessage;
+    }
+ */
 
