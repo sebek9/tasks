@@ -24,7 +24,7 @@ public class SimpleEmailService {
     public void send(final Mail mail) {
         LOGGER.info("Starting email preparation...");
         try {
-            javaMailSender.send(createMailMessage(mail));
+            javaMailSender.send(createMimeMessage(mail));
             LOGGER.info("Email has been sent.");
 
         } catch (MailException e) {
@@ -46,7 +46,7 @@ public class SimpleEmailService {
         return mailMessage;
     }
 
-/*
+
     private MimeMessagePreparator createMimeMessage(final Mail mail){
         return mimeMessage -> {
             MimeMessageHelper messageHelper = new MimeMessageHelper(mimeMessage);
@@ -56,7 +56,7 @@ public class SimpleEmailService {
             messageHelper.setText(mailCreatorService.buildTrelloCardEmail(mail.getMessage()),true);
         };
     }
-*/
+
 }
 
 
