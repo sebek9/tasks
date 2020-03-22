@@ -17,6 +17,7 @@ import org.mockito.ArgumentMatchers;
 import org.springframework.http.MediaType;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.hasSize;
@@ -24,6 +25,7 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -88,15 +90,23 @@ public class TaskControllerTest {
                 .andExpect(jsonPath("$.id", is(1)))
                 .andExpect(jsonPath("$.title", is("Test_task")))
                 .andExpect(jsonPath("$.content", is("Zadanie_1")));
-    }
+         }
 
     @Test
     public void shouldDeleteTask() throws Exception {
-        long id = 1L;
+        //Given
+        Task task = new Task(1L, "Test", "Test content");
 
-        service.deleteTask(id);
+        when(service.getTask(1L)).thenReturn(Optional.of(task));
 
-        verify(service, times(1)).deleteTask(id);
+        //When & Then
+        mockMvc.perform(delete("/v1/task/deleteTask?taskId=1")
+                .contentType(MediaType.APPLICATION_JSON)
+                .characterEncoding("UTF-8")
+                .param("taskId", "1"))
+                .andExpect(status().is(200));
+
+        verify(service, times(1)).deleteTask(1L);
     }
 
     @Test
