@@ -26,6 +26,7 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.put;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -136,10 +137,18 @@ public class TaskControllerTest {
         Task task = new Task(1L, "task200", "test200");
         TaskDto taskDto = new TaskDto(1L, "task200", "test200");
 
-        taskMapper.mapToTask(taskDto);
-        service.saveTask(task);
+        when(taskMapper.mapToTask(ArgumentMatchers.any(TaskDto.class))).thenReturn(task);
 
-        verify(taskMapper, times(1)).mapToTask(taskDto);
+        Gson gson = new Gson();
+        String jsonContent = gson.toJson(taskDto);
+
+        //When & Then
+        mockMvc.perform(post("/v1/task/createTask?title=task200?content=task200")
+                .contentType(MediaType.APPLICATION_JSON)
+                .characterEncoding("UTF-8")
+                .content(jsonContent))
+                .andExpect(status().is(200));
+
         verify(service, times(1)).saveTask(task);
     }
     }
