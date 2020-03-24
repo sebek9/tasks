@@ -1,8 +1,7 @@
-package com.crud.tasks;
+package com.crud.tasks.mapper;
 
 
 import com.crud.tasks.domain.*;
-import com.crud.tasks.mapper.TrelloMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -11,7 +10,7 @@ import java.util.*;
 import static org.junit.Assert.*;
 
 @RunWith(MockitoJUnitRunner.class)
-public class TestMapper {
+public class TestTrelloMapper {
 
 
     @InjectMocks

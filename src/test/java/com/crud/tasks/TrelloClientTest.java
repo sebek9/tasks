@@ -1,6 +1,7 @@
 package com.crud.tasks;
 import com.crud.tasks.config.TrelloConfig;
 import com.crud.tasks.domain.TrelloBoardDto;
+import com.crud.tasks.domain.TrelloCardDto;
 import com.crud.tasks.trello.client.TrelloClient;
 import org.junit.Before;
 import org.junit.Test;
@@ -18,7 +19,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.when;
 
-/*
+
 
 @RunWith(MockitoJUnitRunner.class)
 public class TrelloClientTest {
@@ -39,7 +40,7 @@ public class TrelloClientTest {
         when(trelloConfig.getTrelloToken()).thenReturn("test");
 
     }
-/*
+
     @Test
     public void shouldFetchTrelloBoards() throws URISyntaxException {
 
@@ -62,51 +63,6 @@ public class TrelloClientTest {
 
 
     }
-/*
-    @Test
-    public void shouldCreateCard() throws URISyntaxException {
-        //Given
-        TrelloCardDto trelloCardDto=new TrelloCardDto(
-                "Test task",
-                "Test description",
-                "top",
-                "test_id"
-        );
 
-        URI uri = new URI("http://test.com/cards?key=test&token=test&name=Test%20task&desc=Test%20Description&pos=top&idList=test_id");
-
-        CreatedTrelloCard createdTrelloCard = new CreatedTrelloCard(
-                "1",
-                "Test task",
-                "http://test.com"
-        );
-        when(restTemplate.postForObject(uri,null,CreatedTrelloCard.class));
-        //When
-        CreatedTrelloCard newCard=trelloClient.createNewCard(trelloCardDto);
-
-        //Then
-        assertEquals(1,newCard.getId());
-        assertEquals("Task task",newCard.getName());
-        assertEquals("http://test.com",newCard.getShortUrl());
-    }
-*/
-/*
-    @Test
-    public void shouldReturnEmptyList() throws URISyntaxException {
-        //Given
-        TrelloBoardDto[] trelloBoards = new TrelloBoardDto[1];
-        trelloBoards[0] = new TrelloBoardDto("test_id", "test_board", new ArrayList<>());
-
-        //When
-        URI uri = new URI("http://test.com/members/sebek91/boards?key=test&token=test&fields=name,id&lists=all");
-when(restTemplate.getForObject(uri,TrelloBoardDto[].class)).thenReturn(null);
-        List<TrelloBoardDto>fetchedTrelloBoards=trelloClient.getTrelloBoards();
-
-        //Then
-        assertEquals(0,fetchedTrelloBoards.size());
-
-    }
 
 }
-
- */
